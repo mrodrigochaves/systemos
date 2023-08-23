@@ -21,7 +21,22 @@
     3.1.Resolver a questão de organização de ordens de serviços
 
 4.Entidades:
-    4.1.Ordem
-    4.2.Setor
-    4.3.Solicitante
-    4.4.Executante
+    4.1.Solcitante
+        4.1.1.Nome
+        4.1.2.Tipo
+        4.1.3.Descrição
+        4.1.4.Data da Solicitação
+        4.1.5.Data da Atualização
+
+    4.2.Executante
+        4.2.1.Nome
+        4.2.2.Tipo
+        4.2.3.Descrição
+        4.2.4.Status da Solicitação
+        4.2.5.Data da Atualização
+    
+    4.3.Ordem
+        4.3.1.Tipo
+        4.3.2.Descrição
+        4.3.3.Status da Solicitação
+        4.3.4.Data da Atualização
