@@ -75,5 +75,10 @@ public class Order {
     public void setDate_status(Date date_status) {
         this.date_status = date_status;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" + "id=" + id + ", type=" + type + ", description=" + description + ", status=" + status + ", date_request=" + date_request + ", date_status=" + date_status + '}';
+    }
     
 }
