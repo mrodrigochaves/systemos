@@ -9,5 +9,8 @@ package model;
  * @author sula
  */
 public class Requester {
+ 
+    private Long id;
+    private String name;
     
 }
