@@ -27,4 +27,53 @@ public class Order {
     }
     private Date date_request;
     private Date date_status;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getDate_request() {
+        return date_request;
+    }
+
+    public void setDate_request(Date date_request) {
+        this.date_request = date_request;
+    }
+
+    public Date getDate_status() {
+        return date_status;
+    }
+
+    public void setDate_status(Date date_status) {
+        this.date_status = date_status;
+    }
+    
 }
