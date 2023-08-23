@@ -4,10 +4,18 @@
  */
 package model;
 
+import java.util.Date;
+
 /**
  *
  * @author sula
  */
 public class Order {
     
+    private Long id;
+    private String type;
+    private String description;
+    private String status;
+    private Date date_request;
+    private Date date_status;
 }
