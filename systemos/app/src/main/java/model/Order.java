@@ -16,6 +16,15 @@ public class Order {
     private String type;
     private String description;
     private String status;
+
+    public Order(Long id, String type, String description, String status, Date date_request, Date date_status) {
+        this.id = id;
+        this.type = type;
+        this.description = description;
+        this.status = status;
+        this.date_request = date_request;
+        this.date_status = date_status;
+    }
     private Date date_request;
     private Date date_status;
 }
