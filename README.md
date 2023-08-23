@@ -8,8 +8,9 @@
         1.2.4.Permitir criar ordem de serviço
         1.2.5.Permitir alterar ordem de serviço
         1.2.6.Permitir deletar ordem de serviço
-    1.3.Definição da tecnologia
+    1.3.Definição da tecnologias
         1.3.1.JAVA
+        1.3.2.MySql
     1.4.Regras de negócio
         1.4.1.Tela de login
 
