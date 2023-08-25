@@ -6,7 +6,7 @@ package util;
 
 /**
  *
- * @author sula
+ * @author Márcio Rodrigo
  */
 public class ConectionFactory {
     
