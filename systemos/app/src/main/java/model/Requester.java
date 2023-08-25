@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author sula
+ * @author Márcio Rodrigo
  */
 public class Requester {
  
