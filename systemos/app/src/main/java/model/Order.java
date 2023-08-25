@@ -16,16 +16,16 @@ public class Order {
     private String type;
     private String description;
     private String status;
-    private Date createdDate;
-    private Date statusDate;
+    private Date createdAt;
+    private Date updatedAt;
 
-    public Order(Long id, String type, String description, String status, Date createdDate, Date statusDate) {
+    public Order(Long id, String type, String description, String status, Date createdAt, Date updatedAt) {
         this.id = id;
         this.type = type;
         this.description = description;
         this.status = status;
-        this.createdDate = createdDate;
-        this.statusDate = statusDate;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Long getId() {
@@ -60,25 +60,25 @@ public class Order {
         this.status = status;
     }
 
-    public Date getCreatedDate() {
-        return createdDate;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Date getStatusDate() {
-        return statusDate;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setStatusDate(Date statusDate) {
-        this.statusDate = statusDate;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", type=" + type + ", description=" + description + ", status=" + status + ", createdDate=" + createdDate + ", statusDate=" + statusDate + '}';
+        return "Order{" + "id=" + id + ", type=" + type + ", description=" + description + ", status=" + status + ", createdDate=" + createdAt + ", statusDate=" + updatedAt + '}';
     }
 
 }
