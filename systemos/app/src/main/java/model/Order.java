@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  *
- * @author sula
+ * @author Márcio Rodrigo
  */
 public class Order {
 
