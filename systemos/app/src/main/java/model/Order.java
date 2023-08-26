@@ -12,14 +12,14 @@ import java.util.Date;
  */
 public class Order {
 
-    private Long id;
+    private int id;
     private String type;
     private String description;
     private String status;
     private Date createdAt;
     private Date updatedAt;
 
-    public Order(Long id, String type, String description, String status, Date createdAt, Date updatedAt) {
+    public Order(int id, String type, String description, String status, Date createdAt, Date updatedAt) {
         this.id = id;
         this.type = type;
         this.description = description;
@@ -28,11 +28,11 @@ public class Order {
         this.updatedAt = updatedAt;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
