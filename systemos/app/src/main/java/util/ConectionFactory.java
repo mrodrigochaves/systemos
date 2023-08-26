@@ -31,14 +31,15 @@ public class ConectionFactory {
         }
 
     }
-    
-    public static void closeConnection(Connection connection){
-    try {
-    if(connection != null){
-        connection.close();
+
+    public static void closeConnection(Connection connection) {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (Exception ex) {
+            throw new RuntimeException("Erro ao fechar conexão com banco de dados");
+        }
     }
-    } catch(Exception ex){
-    throw new RuntimeException("Erro ao fechar conexão com banco de dados")
-    }
-    }
+
 }
