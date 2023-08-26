@@ -4,10 +4,16 @@
  */
 package controller;
 
+import java.sql.Connection;
+
 /**
  *
  * @author sula
  */
 class ConnectionFactory {
+
+    static Connection getConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
