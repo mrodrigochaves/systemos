@@ -13,6 +13,7 @@ import java.util.Date;
 public class Order {
 
     private int id;
+    private int orderId;
     private String type;
     private String description;
     private String status;
