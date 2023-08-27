@@ -17,7 +17,7 @@ import util.ConnectionFactory;
 public class OrderController {
     
     public void save(Order order){
-    String sql = "INSERT INTO order(idOrder, name, description)"
+    String sql = "INSERT INTO order(orderId, name, description)"
             + " VALUES (?,?,?)";
     
     Connection connection = null;
@@ -26,9 +26,9 @@ public class OrderController {
     try { 
         connection = ConnectionFactory.getConnection();
         statement = connection.prepareStatement(sql);
-        statement.setInt(1, order.getIdOrder());
+        statement.setInt(1, order.getOrderId());
         statement.setString(2, order.getType());
-        }
+        }catch (Exception e){
     }
     
     public void update (Order order){}
