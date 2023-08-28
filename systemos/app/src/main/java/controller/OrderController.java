@@ -7,7 +7,9 @@ package controller;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import model.Order;
 import util.ConnectionFactory;
@@ -19,7 +21,7 @@ import util.ConnectionFactory;
 public class OrderController {
 
     public void save(Order order) {
-        String sql = "INSERT INTO order(orderId, type, description, status, createdAt, updateAt)"
+        String sql = "INSERT INTO orders(orderId, type, description, status, createdAt, updateAt)"
                 + " VALUES (?,?,?,?,?,?)";
 
         Connection connection = null;
@@ -73,7 +75,7 @@ public class OrderController {
     }
 
     public void removeById(int orderId) throws SQLException {
-        String sql = "DELETE FROM order WHERE id =?";
+        String sql = "DELETE FROM orders WHERE id =?";
         Connection connection = null;
         PreparedStatement statement = null;
 
@@ -91,6 +93,32 @@ public class OrderController {
     }
 
     public List<Order> getAll(Long orderId) {
+        
+        String sql = "SELECT * FROM orders WHERE orderId = ?";
+        
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet result = null;
+        
+        List<Order> orders = new ArrayList<Order>[];
+        
+        try{
+        connection = ConnectionFactory.getConnection();
+        statement = connection.prepareStatement(sql);
+        statement.setInt(1, orderId);
+        result = statement.executeQuery();
+        
+        while(result.next()){
+            Order order = new Order();
+            order.setId(result.getInt("id"));
+            order.setOrderId(result.getInt("orderId"));
+            order.setType(result.getString("type"));
+        }
+        }catch(Exception ex){
+                
+                }
+        
+        
         return null;
     }
 }
