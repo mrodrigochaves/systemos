@@ -20,7 +20,7 @@ public class Order {
     private Date createdAt;
     private Date updatedAt;
 
-    public Order(int id,int orderId, String type, String description, String status, Date createdAt, Date updatedAt) {
+    public Order(int id, int orderId, String type, String description, String status, Date createdAt, Date updatedAt) {
         this.id = id;
         this.orderId = orderId;
         this.type = type;
@@ -30,6 +30,10 @@ public class Order {
         this.updatedAt = updatedAt;
     }
 
+    public Order() {
+        this.createdAt = new Date();
+    }
+
     public int getId() {
         return id;
     }
@@ -37,13 +41,13 @@ public class Order {
     public void setId(int id) {
         this.id = id;
     }
-    
-    public int getOrderId(){
-    return orderId;
+
+    public int getOrderId() {
+        return orderId;
     }
-    
-    public void setOrderId(int orderId){
-    this.orderId = orderId;
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public String getType() {
@@ -88,8 +92,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", orderId= " + orderId +", type=" + type + ", description=" + description + ", status=" + status + ", createdDate=" + createdAt + ", statusDate=" + updatedAt + '}';
+        return "Order{" + "id=" + id + ", orderId= " + orderId + ", type=" + type + ", description=" + description + ", status=" + status + ", createdDate=" + createdAt + ", statusDate=" + updatedAt + '}';
     }
-
 
 }
