@@ -38,7 +38,7 @@ public class OrderController {
         } catch (Exception ex) {
             throw new RuntimeException("Erro ao deletar a ordem" + ex.getMessage(), ex);
         } finally {
-            ConnectionFactory.closeConnection(connection);
+            ConnectionFactory.closeConnection(connection, statement);
         }
     }
     
@@ -47,19 +47,19 @@ public class OrderController {
     
     public void removeById(int orderId) throws SQLException {
         String sql = "DELETE FROM order WHERE id =?";
-        Connection conn = null;
+        Connection connection = null;
         PreparedStatement statement = null;
         
         try {
-            conn = ConnectionFactory.getConnection();
-            statement = conn.prepareStatement(sql);
+            connection = ConnectionFactory.getConnection();
+            statement = connection.prepareStatement(sql);
             statement.setInt(1, orderId);
             statement.execute();            
             
-        } catch (SQLException e) {
-            throw new SQLException("Erro ao deletar a ordem");
+        } catch (Exception ex) {
+            throw new RuntimeException("Erro ao deletar a ordem");
         } finally {
-            ConnectionFactory.closeConnection(conn);
+            ConnectionFactory.closeConnection(connection, statement);
         }
     }
     
