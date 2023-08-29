@@ -75,24 +75,29 @@ public class OrderController {
         String sql = "SELECT * FROM orders WHERE orderId = ?";
         
         List<Order> orders = new ArrayList<>();
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet result = null;
 
-        try (Connection connection = ConnectionFactory.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
-
+        try {
+            connection = ConnectionFactory.getConnection();
+            statement = connection.prepareStatement(sql);
             statement.setInt(1, orderId);
-            try (ResultSet result = statement.executeQuery()) {
-                while (result.next()) {
-                    Order order = new Order();
-                    order.setId(result.getInt("id"));
-                    order.setOrderId(result.getInt("orderId"));
-                    order.setType(result.getString("type"));
-                    // Set other properties here
-                    orders.add(order);
-                }
+            result = statement.executeQuery();
+
+            while (result.next()) {
+                Order order = new Order();
+                order.setId(result.getInt("id"));
+                order.setOrderId(result.getInt("orderId"));
+                order.setType(result.getString("type"));
+                // Set other properties here
+                orders.add(order);
             }
 
         } catch (Exception ex) {
             throw new RuntimeException("Error while retrieving orders: " + ex.getMessage(), ex);
+        } finally {
+            ConnectionFactory.closeConnection(connection, statement, result);
         }
 
         return orders;
