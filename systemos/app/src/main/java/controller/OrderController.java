@@ -3,7 +3,6 @@ package controller;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Order;
@@ -26,7 +25,7 @@ public class OrderController {
             statement.setDate(6, new java.sql.Date(order.getUpdatedAt().getTime()));
             statement.executeUpdate();
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             throw new RuntimeException("Error while saving order: " + ex.getMessage(), ex);
         }
     }
@@ -53,7 +52,7 @@ public class OrderController {
             statement.setInt(7, order.getId());
             statement.executeUpdate();
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             throw new RuntimeException("Error while updating order: " + ex.getMessage(), ex);
         }
     }
@@ -67,7 +66,7 @@ public class OrderController {
             statement.setInt(1, orderId);
             statement.executeUpdate();
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             throw new RuntimeException("Error while deleting order: " + ex.getMessage(), ex);
         }
     }
@@ -92,7 +91,7 @@ public class OrderController {
                 }
             }
 
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             throw new RuntimeException("Error while retrieving orders: " + ex.getMessage(), ex);
         }
 
