@@ -1,36 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-/**
- *
- * @author Márcio Rodrigo
- */
 public class ConnectionFactory {
 
-    public static final String DRIVER = "com.mysql.jdbc.Driver";
-    public static final String URL = "jdbc:mysql://localhost:3306/systemosdb";
-    public static final String USER = "admin";
-    public static final String PASS = "123456";
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://localhost:3306/systemosdb";
+    private static final String USER = "admin";
+    private static final String PASS = "123456";
 
-    /**
-     *
-     * @return
-     */
     public static Connection getConnection() {
         try {
             Class.forName(DRIVER);
             return DriverManager.getConnection(URL, USER, PASS);
         } catch (Exception ex) {
-            throw new RuntimeException("Erro de conecxão com banco de dados", ex);
+            throw new RuntimeException("Database connection error", ex);
         }
-
     }
 
     public static void closeConnection(Connection connection) {
@@ -39,21 +27,29 @@ public class ConnectionFactory {
                 connection.close();
             }
         } catch (Exception ex) {
-            throw new RuntimeException("Erro ao fechar conexão com banco de dados");
-        }
-    }
-    
-    public static void closeConnection(Connection connection, PreparedStatement statement) {
-        try {
-            if (connection != null) {
-                connection.close();
-            }
-            if(statement != null){
-            statement.close();
-            }
-        } catch (Exception ex) {
-            throw new RuntimeException("Erro ao fechar conexão com banco de dados");
+            throw new RuntimeException("Error while closing database connection");
         }
     }
 
+    public static void closeConnection(Connection connection, PreparedStatement statement) {
+        closeConnection(connection);
+        try {
+            if (statement != null) {
+                statement.close();
+            }
+        } catch (Exception ex) {
+            throw new RuntimeException("Error while closing statement");
+        }
+    }
+
+    public static void closeConnection(Connection connection, PreparedStatement statement, ResultSet result) {
+        closeConnection(connection, statement);
+        try {
+            if (result != null) {
+                result.close();
+            }
+        } catch (Exception ex) {
+            throw new RuntimeException("Error while closing result set");
+        }
+    }
 }
