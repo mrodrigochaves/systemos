@@ -4,10 +4,23 @@
  */
 package main;
 
+import controller.OrderController;
+import model.Order;
+
 /**
  *
  * @author Márcio Rodrigo
  */
 public class Main {
     
+    public static void main(String[]args){
+    
+        OrderController orderController = new OrderController();
+        
+        Order order = new Order();
+        order.setType("Urgente");
+        order.setDescription("Problema em computador.");
+        order.setStatus("Aberta");
+        orderController.save(order);
+    }
 }
