@@ -21,6 +21,12 @@ public class Main {
         order.setType("Urgente");
         order.setDescription("Problema em computador.");
         order.setStatus("Aberta");
-        orderController.save(order);
+        //orderController.save(order);
+        
+        order.setId(1);
+        order.setOrderId(1);
+        order.setStatus("Fechada");
+        
+        orderController.update(order);
     }
 }
