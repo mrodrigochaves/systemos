@@ -10,38 +10,37 @@ import util.ConnectionFactory;
 
 public class OrderController {
 
-public void save(Order order) {
-    String sql = "INSERT INTO orders(orderId, type, description, status, createdAt, updatedAt)"
-            + " VALUES (?,?,?,?,?,?)";
+    public void save(Order order) {
+        String sql = "INSERT INTO orders(orderId, type, description, status, createdAt, updatedAt)"
+                + " VALUES (?,?,?,?,?,?)";
 
-    try (Connection connection = ConnectionFactory.getConnection();
-         PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-        statement.setInt(1, order.getOrderId());
-        statement.setString(2, order.getType());
-        statement.setString(3, order.getDescription());
-        statement.setString(4, order.getStatus());
+            statement.setInt(1, order.getOrderId());
+            statement.setString(2, order.getType());
+            statement.setString(3, order.getDescription());
+            statement.setString(4, order.getStatus());
 
-        java.util.Date createdAt = order.getCreatedAt();
-        if (createdAt != null) {
-            statement.setDate(5, new java.sql.Date(createdAt.getTime()));
-        } else {
-            statement.setNull(5, java.sql.Types.DATE);
+            java.util.Date createdAt = order.getCreatedAt();
+            if (createdAt != null) {
+                statement.setDate(5, new java.sql.Date(createdAt.getTime()));
+            } else {
+                statement.setNull(5, java.sql.Types.DATE);
+            }
+
+            java.util.Date updatedAt = order.getUpdatedAt();
+            if (updatedAt != null) {
+                statement.setDate(6, new java.sql.Date(updatedAt.getTime()));
+            } else {
+                statement.setNull(6, java.sql.Types.DATE);
+            }
+
+            statement.executeUpdate();
+
+        } catch (Exception ex) {
+            throw new RuntimeException("Error while saving order: " + ex.getMessage(), ex);
         }
-
-        java.util.Date updatedAt = order.getUpdatedAt();
-        if (updatedAt != null) {
-            statement.setDate(6, new java.sql.Date(updatedAt.getTime()));
-        } else {
-            statement.setNull(6, java.sql.Types.DATE);
-        }
-
-        statement.executeUpdate();
-
-    } catch (Exception ex) {
-        throw new RuntimeException("Error while saving order: " + ex.getMessage(), ex);
     }
-}
 
     public void update(Order order) {
         String sql = "UPDATE orders SET"
@@ -53,15 +52,29 @@ public void save(Order order) {
                 + " updatedAt = ?"
                 + " WHERE id = ?";
 
-        try (Connection connection = ConnectionFactory.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setInt(1, order.getOrderId());
             statement.setString(2, order.getType());
             statement.setString(3, order.getDescription());
             statement.setString(4, order.getStatus());
-            statement.setDate(5, new java.sql.Date(order.getCreatedAt().getTime()));
-            statement.setDate(6, new java.sql.Date(order.getUpdatedAt().getTime()));
+
+            java.util.Date createdAt = order.getCreatedAt();
+            if (createdAt != null) {
+                statement.setDate(5, new java.sql.Date(createdAt.getTime()));
+            } else {
+                statement.setNull(5, java.sql.Types.DATE);
+            }
+
+            java.util.Date updatedAt = order.getUpdatedAt();
+            if (updatedAt != null) {
+                statement.setDate(6, new java.sql.Date(updatedAt.getTime()));
+            } else {
+                // Set updatedAt to current timestamp if it's null
+                java.util.Date currentTimestamp = new java.util.Date();
+                statement.setTimestamp(6, new java.sql.Timestamp(currentTimestamp.getTime()));
+            }
+
             statement.setInt(7, order.getId());
             statement.executeUpdate();
 
@@ -73,8 +86,7 @@ public void save(Order order) {
     public void removeById(int orderId) {
         String sql = "DELETE FROM orders WHERE id = ?";
 
-        try (Connection connection = ConnectionFactory.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setInt(1, orderId);
             statement.executeUpdate();
@@ -86,7 +98,7 @@ public void save(Order order) {
 
     public List<Order> getAll(int orderId) {
         String sql = "SELECT * FROM orders WHERE orderId = ?";
-        
+
         List<Order> orders = new ArrayList<>();
         Connection connection = null;
         PreparedStatement statement = null;
