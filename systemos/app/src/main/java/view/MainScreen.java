@@ -153,8 +153,10 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setPreferredSize(new java.awt.Dimension(104, 104));
 
+        jList1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jList1.setForeground(new java.awt.Color(0, 153, 255));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Ordem 1", "Ordem 2", "Ordem 3 ", "Ordem 4", "Ordem 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
