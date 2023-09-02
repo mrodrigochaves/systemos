@@ -4,18 +4,22 @@
  */
 package view;
 
+import controller.OrderController;
+
 /**
  *
  * @author Márcio Rodrigo
  */
 public class OrderDialogScreen extends javax.swing.JDialog {
 
-    /**
-     * Creates new form OrderDialogScreen
-     */
+    OrderController controller;
+    
+    
     public OrderDialogScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        controller = new OrderController();
     }
 
     OrderDialogScreen() {
