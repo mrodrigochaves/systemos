@@ -158,10 +158,10 @@ public class OrderDialogScreen extends javax.swing.JDialog {
 
         if (typeName.isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "Por favor, preencha o campo 'Nome'");
+        } else if (description.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Por favor, preencha o campo 'Descrição'");
+
         } else {
-            if (description.isEmpty()) {
-                description = "Descrição não disponível";
-            }
 
             Order order = new Order();
             order.setType(typeName);
