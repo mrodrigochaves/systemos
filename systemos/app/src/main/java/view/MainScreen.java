@@ -7,6 +7,7 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 
+
 /**
  *
  * @author Márcio Rodrigo
@@ -135,6 +136,11 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel3.setText("Ordem");
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\sula\\Documents\\NetBeansProjects\\systemos\\systemos\\app\\src\\main\\resources\\icons8-plus-64.png")); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -306,6 +312,12 @@ public class MainScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+      OrderDialogScreen orderDialogScreen = new OrderDialogScreen(this, rootPaneCheckingEnabled);
+      orderDialogScreen.setVisible(true);
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
