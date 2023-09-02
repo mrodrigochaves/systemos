@@ -15,12 +15,11 @@ import model.Order;
 public class OrderDialogScreen extends javax.swing.JDialog {
 
     OrderController controller;
-    
-    
+
     public OrderDialogScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         controller = new OrderController();
     }
 
@@ -45,7 +44,7 @@ public class OrderDialogScreen extends javax.swing.JDialog {
         jTextFieldName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaDescription = new javax.swing.JTextArea();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -96,9 +95,9 @@ public class OrderDialogScreen extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Descrição");
 
-        jTextAreaDescription.setColumns(20);
-        jTextAreaDescription.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaDescription);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -152,15 +151,29 @@ public class OrderDialogScreen extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextFieldNameActionPerformed
 
     private void jLabelOrderClickMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelOrderClickMouseClicked
+
         // TODO add your handling code here:
-        Order order = new Order();
-        order.setType(jTextFieldName.getText());
-        order.setDescription(jTextAreaDescription.getText());
-        
-        controller.save(order);
-        JOptionPane.showMessageDialog(rootPane, "Ordem salva com sucesso!");
-        
-        this.dispose();
+        String typeName = jTextFieldName.getText();
+        String description = jTextArea1.getText();
+
+        if (typeName.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Por favor, preencha o campo 'Nome'");
+        } else {
+            if (description.isEmpty()) {
+                description = "Descrição não disponível";
+            }
+
+            Order order = new Order();
+            order.setType(typeName);
+            order.setDescription(description);
+            order.setStatus("Aberta"); // Define o status como "aberto" se estiver vazio
+
+            controller.save(order);
+            JOptionPane.showMessageDialog(rootPane, "Ordem salva com sucesso!");
+
+            this.dispose();
+        }
+
     }//GEN-LAST:event_jLabelOrderClickMouseClicked
 
     /**
@@ -213,7 +226,7 @@ public class OrderDialogScreen extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaDescription;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 }
