@@ -4,6 +4,9 @@
  */
 package view;
 
+import java.awt.Color;
+import java.awt.Font;
+
 /**
  *
  * @author Márcio Rodrigo
@@ -44,7 +47,7 @@ public class MainScreen extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableOrder = new javax.swing.JTable();
 
         jPanel4.setBackground(java.awt.Color.white);
 
@@ -218,9 +221,9 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jTable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 153, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableOrder.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTableOrder.setForeground(new java.awt.Color(0, 153, 255));
+        jTableOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -246,11 +249,11 @@ public class MainScreen extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.setRowHeight(40);
-        jTable1.setSelectionForeground(new java.awt.Color(0, 153, 255));
-        jTable1.setShowGrid(true);
-        jScrollPane2.setViewportView(jTable1);
+        jTableOrder.setColumnSelectionAllowed(true);
+        jTableOrder.setRowHeight(40);
+        jTableOrder.setSelectionForeground(new java.awt.Color(0, 153, 255));
+        jTableOrder.setShowGrid(true);
+        jScrollPane2.setViewportView(jTableOrder);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -315,7 +318,7 @@ public class MainScreen extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Java swing".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -358,6 +361,12 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableOrder;
     // End of variables declaration//GEN-END:variables
+
+    public void decorateTableTask(){
+       jTableOrder.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+       jTableOrder.getTableHeader().setBackground(new Color(0,153,255));
+   
+    }
 }
