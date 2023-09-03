@@ -18,7 +18,7 @@ public class Main {
         OrderController orderController = new OrderController();
         
         Order order = new Order();
-        order.setType("Urgente");
+        order.setItem("Urgente");
         order.setDescription("Problema em computador.");
         order.setStatus("Aberta");
         //orderController.save(order);
