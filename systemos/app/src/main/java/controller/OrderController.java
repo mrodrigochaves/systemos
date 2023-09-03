@@ -11,13 +11,13 @@ import util.ConnectionFactory;
 public class OrderController {
 
     public void save(Order order) {
-        String sql = "INSERT INTO orders(orderId, type, description, status, createdAt, updatedAt)"
+        String sql = "INSERT INTO orders(orderId, item, description, status, createdAt, updatedAt)"
                 + " VALUES (?,?,?,?,?,?)";
 
         try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setInt(1, order.getOrderId());
-            statement.setString(2, order.getType());
+            statement.setString(2, order.getItem());
             statement.setString(3, order.getDescription());
             statement.setString(4, order.getStatus());
 
@@ -45,7 +45,7 @@ public class OrderController {
     public void update(Order order) {
         String sql = "UPDATE orders SET"
                 + " orderId = ?,"
-                + " type = ?,"
+                + " item = ?,"
                 + " description = ?,"
                 + " status = ?,"
                 + " createdAt = ?,"
@@ -55,7 +55,7 @@ public class OrderController {
         try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setInt(1, order.getOrderId());
-            statement.setString(2, order.getType());
+            statement.setString(2, order.getItem());
             statement.setString(3, order.getDescription());
             statement.setString(4, order.getStatus());
 
@@ -114,7 +114,7 @@ public class OrderController {
                 Order order = new Order();
                 order.setId(result.getInt("id"));
                 order.setOrderId(result.getInt("orderId"));
-                order.setType(result.getString("type"));
+                order.setItem(result.getString("item"));
                 // Set other properties here
                 orders.add(order);
             }
