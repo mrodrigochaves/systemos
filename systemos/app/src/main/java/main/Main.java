@@ -15,18 +15,5 @@ public class Main {
     
     public static void main(String[]args){
     
-        OrderController orderController = new OrderController();
-        
-        Order order = new Order();
-        order.setItem("Urgente");
-        order.setDescription("Problema em computador.");
-        order.setStatus("Aberta");
-        //orderController.save(order);
-        
-        order.setId(1);
-        order.setOrderId(1);
-        order.setStatus("Fechada");
-        
-        orderController.update(order);
     }
 }
