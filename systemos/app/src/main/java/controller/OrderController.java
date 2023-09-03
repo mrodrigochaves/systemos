@@ -16,7 +16,6 @@ public class OrderController {
 
         try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setInt(1, order.getOrderId());
             statement.setString(2, order.getItem());
             statement.setString(3, order.getDescription());
             statement.setString(4, order.getStatus());
@@ -44,7 +43,6 @@ public class OrderController {
 
     public void update(Order order) {
         String sql = "UPDATE orders SET"
-                + " orderId = ?,"
                 + " item = ?,"
                 + " description = ?,"
                 + " status = ?,"
@@ -54,28 +52,27 @@ public class OrderController {
 
         try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setInt(1, order.getOrderId());
-            statement.setString(2, order.getItem());
-            statement.setString(3, order.getDescription());
-            statement.setString(4, order.getStatus());
+            statement.setString(1, order.getItem());
+            statement.setString(2, order.getDescription());
+            statement.setString(3, order.getStatus());
 
             java.util.Date createdAt = order.getCreatedAt();
             if (createdAt != null) {
-                statement.setDate(5, new java.sql.Date(createdAt.getTime()));
+                statement.setDate(4, new java.sql.Date(createdAt.getTime()));
             } else {
-                statement.setNull(5, java.sql.Types.DATE);
+                statement.setNull(4, java.sql.Types.DATE);
             }
 
             java.util.Date updatedAt = order.getUpdatedAt();
             if (updatedAt != null) {
-                statement.setDate(6, new java.sql.Date(updatedAt.getTime()));
+                statement.setDate(5, new java.sql.Date(updatedAt.getTime()));
             } else {
                 // Set updatedAt to current timestamp if it's null
                 java.util.Date currentTimestamp = new java.util.Date();
-                statement.setTimestamp(6, new java.sql.Timestamp(currentTimestamp.getTime()));
+                statement.setTimestamp(5, new java.sql.Timestamp(currentTimestamp.getTime()));
             }
 
-            statement.setInt(7, order.getId());
+            statement.setInt(6, order.getId());
             statement.executeUpdate();
 
         } catch (Exception ex) {
@@ -113,7 +110,6 @@ public class OrderController {
             while (result.next()) {
                 Order order = new Order();
                 order.setId(result.getInt("id"));
-                order.setOrderId(result.getInt("orderId"));
                 order.setItem(result.getString("item"));
                 // Set other properties here
                 orders.add(order);
