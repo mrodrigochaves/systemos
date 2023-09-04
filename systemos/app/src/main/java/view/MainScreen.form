@@ -194,7 +194,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Controle seus chamados"/>
+            <Property name="text" type="java.lang.String" value="Control your calls"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -223,7 +223,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="72" max="32767" attributes="0"/>
+                  <EmptySpace pref="79" max="32767" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -256,7 +256,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ordem"/>
+            <Property name="text" type="java.lang.String" value="Order"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
@@ -326,7 +326,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Description"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -383,11 +383,11 @@
                 </Property>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                   <StringArray count="5">
-                    <StringItem index="0" value="Ordem 1"/>
-                    <StringItem index="1" value="Ordem 2"/>
-                    <StringItem index="2" value="Ordem 3 "/>
-                    <StringItem index="3" value="Ordem 4"/>
-                    <StringItem index="4" value="Ordem 5"/>
+                    <StringItem index="0" value="Order 1"/>
+                    <StringItem index="1" value="Order 2"/>
+                    <StringItem index="2" value="Order 3 "/>
+                    <StringItem index="3" value="Order 4"/>
+                    <StringItem index="4" value="Order 5"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -456,9 +456,9 @@
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
-                    <Column editable="false" title="Nome" type="java.lang.String"/>
-                    <Column editable="false" title="Tipo" type="java.lang.String"/>
-                    <Column editable="false" title="Descri&#xe7;&#xe3;o" type="java.lang.String"/>
+                    <Column editable="false" title="Priority" type="java.lang.String"/>
+                    <Column editable="false" title="Item" type="java.lang.String"/>
+                    <Column editable="false" title="Description" type="java.lang.String"/>
                     <Column editable="true" title="Status" type="java.lang.Boolean"/>
                   </Table>
                 </Property>

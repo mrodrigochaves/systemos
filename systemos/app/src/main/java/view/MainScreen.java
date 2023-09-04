@@ -101,7 +101,7 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel1.setText(" SystemOS");
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Controle seus chamados");
+        jLabel2.setText("Control your calls");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,7 +133,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Ordem");
+        jLabel3.setText("Order");
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\sula\\Documents\\NetBeansProjects\\systemos\\systemos\\app\\src\\main\\resources\\icons8-plus-50.png")); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -149,7 +149,7 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addContainerGap())
         );
@@ -173,7 +173,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Descrição");
+        jLabel4.setText("Description");
 
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\sula\\Documents\\NetBeansProjects\\systemos\\systemos\\app\\src\\main\\resources\\icons8-plus-50.png")); // NOI18N
 
@@ -208,7 +208,7 @@ public class MainScreen extends javax.swing.JFrame {
         jList1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jList1.setForeground(new java.awt.Color(0, 153, 255));
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Ordem 1", "Ordem 2", "Ordem 3 ", "Ordem 4", "Ordem 5" };
+            String[] strings = { "Order 1", "Order 2", "Order 3 ", "Order 4", "Order 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
@@ -240,7 +240,7 @@ public class MainScreen extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Nome", "Tipo", "Descrição", "Status"
+                "Priority", "Item", "Description", "Status"
             }
         ) {
             Class[] types = new Class [] {
