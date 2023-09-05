@@ -4,21 +4,29 @@
  */
 package view;
 
+import controller.OrderController;
 import java.awt.Color;
 import java.awt.Font;
-
+import java.util.List;
+import javax.swing.DefaultListModel;
+import model.Order;
 
 /**
  *
  * @author Márcio Rodrigo
  */
 public class MainScreen extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MainScreen
-     */
+    
+    OrderController orderController;
+    
+    DefaultListModel orderModel;
+    
     public MainScreen() {
         initComponents();
+        
+        initDataController();
+        initComponentsModel();
+        
     }
 
     /**
@@ -207,11 +215,6 @@ public class MainScreen extends javax.swing.JFrame {
 
         jList1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jList1.setForeground(new java.awt.Color(0, 153, 255));
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Order 1", "Order 2", "Order 3 ", "Order 4", "Order 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(jList1);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -322,8 +325,8 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-      OrderDialogScreen orderDialogScreen = new OrderDialogScreen(this, rootPaneCheckingEnabled);
-      orderDialogScreen.setVisible(true);
+        OrderDialogScreen orderDialogScreen = new OrderDialogScreen(this, rootPaneCheckingEnabled);
+        orderDialogScreen.setVisible(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
@@ -383,9 +386,32 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JTable jTableOrder;
     // End of variables declaration//GEN-END:variables
 
-    public void decorateTableTask(){
-       jTableOrder.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
-       jTableOrder.getTableHeader().setBackground(new Color(0,153,255));
-   
+    public void decorateTableTask() {
+        jTableOrder.getTableHeader().setFont(new Font("Tahoma", Font.BOLD, 14));
+        jTableOrder.getTableHeader().setBackground(new Color(0, 153, 255));
+        
+    }
+    
+    public void initDataController() {
+        orderController = new OrderController();
+    }
+    
+    public void initComponentsModel() {
+        orderModel = new DefaultListModel();
+        loadOrders();
+    }
+    
+    public void loadOrders() {
+        List<Order> orders = orderController.getAll(WIDTH);
+        
+        orderModel.clear();
+        
+        for (int i = 0; i < orders.size() - 1; i++) {
+            Order order = orders.get(i);
+            
+            orderModel.addElement(order);
+        }
+        
+    jList1.setModel(orderModel);
     }
 }

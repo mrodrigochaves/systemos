@@ -382,13 +382,7 @@
                   <Color blue="ff" green="99" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                  <StringArray count="5">
-                    <StringItem index="0" value="Order 1"/>
-                    <StringItem index="1" value="Order 2"/>
-                    <StringItem index="2" value="Order 3 "/>
-                    <StringItem index="3" value="Order 4"/>
-                    <StringItem index="4" value="Order 5"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <AuxValues>
