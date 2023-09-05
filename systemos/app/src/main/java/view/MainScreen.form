@@ -332,7 +332,7 @@
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\sula\Documents\NetBeansProjects\systemos\systemos\app\src\main\resources\icons8-plus-50.png"/>
+              <Image iconType="2" name="C:\Users\sula\Documents\NetBeansProjects\systemos\systemos\app\src\main\resources\icons8-refresh-50.png"/>
             </Property>
           </Properties>
         </Component>
