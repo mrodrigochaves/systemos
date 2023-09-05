@@ -11,7 +11,7 @@ import util.ConnectionFactory;
 public class OrderController {
 
     public void save(Order order) {
-        String sql = "INSERT INTO orders(orderId, item, description, status, createdAt, updatedAt)"
+        String sql = "INSERT INTO orders(id, item, description, status, createdAt, updatedAt)"
                 + " VALUES (?,?,?,?,?,?)";
 
         try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -80,12 +80,12 @@ public class OrderController {
         }
     }
 
-    public void removeById(int orderId) {
+    public void removeById(int id) {
         String sql = "DELETE FROM orders WHERE id = ?";
 
         try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setInt(1, orderId);
+            statement.setInt(1, id);
             statement.executeUpdate();
 
         } catch (Exception ex) {
@@ -93,8 +93,8 @@ public class OrderController {
         }
     }
 
-    public List<Order> getAll(int orderId) {
-        String sql = "SELECT * FROM orders WHERE orderId = ?";
+    public List<Order> getAll(int id) {
+        String sql = "SELECT * FROM orders WHERE id = ?";
 
         List<Order> orders = new ArrayList<>();
         Connection connection = null;
@@ -104,7 +104,7 @@ public class OrderController {
         try {
             connection = ConnectionFactory.getConnection();
             statement = connection.prepareStatement(sql);
-            statement.setInt(1, orderId);
+            statement.setInt(1, id);
             result = statement.executeQuery();
 
             while (result.next()) {
