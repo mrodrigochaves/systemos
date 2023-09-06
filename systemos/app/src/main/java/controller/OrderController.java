@@ -15,7 +15,7 @@ public class OrderController {
                 + " VALUES (?,?,?,?,?,?)";
 
         try (Connection connection = ConnectionFactory.getConnection(); PreparedStatement statement = connection.prepareStatement(sql)) {
-
+            statement.setInt(1, order.getId());
             statement.setString(2, order.getItem());
             statement.setString(3, order.getDescription());
             statement.setString(4, order.getStatus());
@@ -111,6 +111,8 @@ public class OrderController {
                 Order order = new Order();
                 order.setId(result.getInt("id"));
                 order.setItem(result.getString("item"));
+                order.setDescription(result.getString("description"));
+                order.setStatus(result.getString("status"));
                 // Set other properties here
                 orders.add(order);
             }
