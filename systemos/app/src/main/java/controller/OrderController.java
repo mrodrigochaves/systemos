@@ -93,8 +93,8 @@ public class OrderController {
         }
     }
 
-    public List<Order> getAll(int id) {
-        String sql = "SELECT * FROM orders WHERE id = ?";
+    public List<Order> getAll() {
+        String sql = "SELECT * FROM orders";
 
         List<Order> orders = new ArrayList<>();
         Connection connection = null;
@@ -104,7 +104,7 @@ public class OrderController {
         try {
             connection = ConnectionFactory.getConnection();
             statement = connection.prepareStatement(sql);
-            statement.setInt(1, id);
+
             result = statement.executeQuery();
 
             while (result.next()) {
@@ -123,4 +123,6 @@ public class OrderController {
 
         return orders;
     }
+
+ 
 }
