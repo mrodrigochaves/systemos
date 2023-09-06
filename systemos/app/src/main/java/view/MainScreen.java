@@ -402,7 +402,7 @@ public class MainScreen extends javax.swing.JFrame {
     }
     
     public void loadOrders() {
-        List<Order> orders = orderController.getAll(WIDTH);
+        List<Order> orders = orderController.getAll();
         
         orderModel.clear();
         
