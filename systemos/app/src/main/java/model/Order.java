@@ -82,7 +82,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "id=" + id + ", item=" + item + ", description=" + description + ", status=" + status + ", createdDate=" + createdAt + ", statusDate=" + updatedAt + '}';
+        return this.item;
     }
 
 }
